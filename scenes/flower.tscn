@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/flor/0001.png" type="Texture" id=1]
+[ext_resource path="res://assets/flor/0000.png" type="Texture" id=2]
+[ext_resource path="res://scripts/flower.gd" type="Script" id=3]
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=6]
+radius = 48.0104
+
+[node name="flower" type="Node2D"]
+position = Vector2( 567, 447 )
+script = ExtResource( 3 )
+
+[node name="anim" type="AnimatedSprite" parent="."]
+frames = SubResource( 5 )
+frame = 1
+playing = true
+
+[node name="flower" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="flower"]
+position = Vector2( 0, 2 )
+z_index = 2
+shape = SubResource( 6 )
